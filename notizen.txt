@@ -1,0 +1,21 @@
+- Idempotenz
+- Periodische Operationen
+- Batch Processing
+- LCS
+- langläufige Transaktionen
+- zentrales Logging / Exception-Handling
+- Pre- und Post-Actions
+- Journalisierung
+
+allgemeines:
+
+Service - Function - Access Layer
+Wie wird Persistenzschicht gebaut?
+Wie funktionieren Transaktionen?
+Wie funktioniert die Architektur (eine obere Schicht darf immer auf die unteren Schichten zugreifen, nie umgekehrt)
+High cohesion
+Auf immutable objects achten
+Wie funktioniert das Batch-Processing?
+
+
+C:\Users\hamm\workspace-pedas\.metadata\.plugins\org.eclipse.core.resources\.projects\jee-serverEAR\beadep\pedas --> dieses Verzeichnis löschen wenn es Probleme mit dem Eclipse-Deployment gibt
