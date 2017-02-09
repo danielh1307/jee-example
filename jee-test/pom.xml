@@ -18,7 +18,7 @@
 			<artifactId>wlthint3client</artifactId>
 			<version>12212</version>
 			<scope>system</scope>
-			<systemPath>c:\\java\\wls122120\\wls12212\\wlserver\\server\\lib\\wlthint3client.jar</systemPath>
+			<systemPath>${env.WL_HOME}\\server\\lib\\wlthint3client.jar</systemPath>
 		</dependency>
 
 		<!-- JUNIT -->
