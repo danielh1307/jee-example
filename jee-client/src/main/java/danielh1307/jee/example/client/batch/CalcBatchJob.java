@@ -10,8 +10,12 @@ public interface CalcBatchJob {
 
 	public long start();
 	
+	public long startBatchlet();
+	
 	public Date getStartTime(long id);
 	
 	public Date getEndTime(long id);
+	
+	public BatchStatus getBatchStatus(long id);
 	
 }
