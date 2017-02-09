@@ -12,9 +12,12 @@ import javax.batch.runtime.BatchRuntime;
 import javax.batch.runtime.context.JobContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.interceptor.Interceptors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import danielh1307.jee.example.server.util.LogMethodStartInterceptor;
 
 @Named
 public class SimpleCalcReader extends AbstractItemReader {
@@ -33,8 +36,8 @@ public class SimpleCalcReader extends AbstractItemReader {
 	 * checkpoint is null.
 	 */
 	@Override
+	@Interceptors(LogMethodStartInterceptor.class)
 	public void open(Serializable checkpoint) throws Exception {
-		logger.info("Call to open(), checkpoint is " + checkpoint);
 		JobOperator jobOperator = BatchRuntime.getJobOperator();
 		Properties jobParameters = jobOperator.getParameters(jobContext.getExecutionId());
 		String resourceName = (String) jobParameters.get("calculationInputFileName");
@@ -48,9 +51,8 @@ public class SimpleCalcReader extends AbstractItemReader {
 	 * items, the item writer is called one last time).
 	 */
 	@Override
+	@Interceptors(LogMethodStartInterceptor.class)
 	public Object readItem() throws Exception {
-		logger.info("Call to readItem()");
-
 		line = br.readLine();
 		if (line == null) {
 			// by returning null, we force the job to stop
@@ -69,8 +71,8 @@ public class SimpleCalcReader extends AbstractItemReader {
 	 * are no more items to write, this method is called one last time.
 	 */
 	@Override
+	@Interceptors(LogMethodStartInterceptor.class)
 	public Serializable checkpointInfo() throws Exception {
-		logger.info("Call to checkpointInfo(), returning " + lineNumber);
 		return lineNumber;
 	}
 
@@ -78,8 +80,8 @@ public class SimpleCalcReader extends AbstractItemReader {
 	 * This method is called exactly once at the very end.
 	 */
 	@Override
+	@Interceptors(LogMethodStartInterceptor.class)
 	public void close() throws Exception {
-		logger.info("Call to close()");
 		br.close();
 	}
 }

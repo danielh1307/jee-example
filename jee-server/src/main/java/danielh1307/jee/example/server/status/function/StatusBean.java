@@ -1,6 +1,9 @@
 package danielh1307.jee.example.server.status.function;
 
 import javax.enterprise.context.RequestScoped;
+import javax.interceptor.Interceptors;
+
+import danielh1307.jee.example.server.util.LogMethodStartInterceptor;
 
 /**
  * Please consider to create an (empty) file beans.xml in META-INF directory to configure CDI.
@@ -13,6 +16,7 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class StatusBean {
 	
+	@Interceptors(LogMethodStartInterceptor.class)
 	public String ping(String a) {
 		return a;
 	}
