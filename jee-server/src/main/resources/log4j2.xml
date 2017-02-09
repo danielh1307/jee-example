@@ -6,13 +6,23 @@
 				<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
 			</PatternLayout>
 		</File>
+		<File name="BatchFile" fileName="BatchFile.log">
+			<PatternLayout>
+				<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+		</File>
 	</Appenders>
 	<Loggers>
 		<Root level="error">
 			<AppenderRef ref="LogFile" />
 		</Root>
-		<Logger name="danielh1307.jee.example.server.status.service" level="error" additivity="false">
+		<Logger name="danielh1307.jee.example.server.status.service"
+			level="error" additivity="false">
 			<AppenderRef ref="LogFile" />
+		</Logger>
+		<Logger name="danielh1307.jee.example.server.batch" level="info"
+			additivity="false">
+			<AppenderRef ref="BatchFile" />
 		</Logger>
 	</Loggers>
 </Configuration>
