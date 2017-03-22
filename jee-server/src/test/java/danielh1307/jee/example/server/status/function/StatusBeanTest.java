@@ -3,7 +3,7 @@ package danielh1307.jee.example.server.status.function;
 import org.junit.Assert;
 import org.junit.Test;
 
-import danielh1307.jee.example.server.status.function.StatusBean;
+import danielh1307.jee.example.status.StatusBean;
 
 /**
  * 

@@ -5,6 +5,11 @@
 	<groupId>danielh1307.jee.example</groupId>
 	<artifactId>test</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>	
 
 	<dependencies>
 		<!-- JEE -->
@@ -17,6 +22,41 @@
 			<groupId>javax.batch</groupId>
 			<artifactId>javax.batch-api</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.6.Final</version>
+		</dependency>		
+		
+		<!-- WLS SYSTEM DEPENDENCIES -->
+		<dependency>
+			<!-- we have to make sure we have the same version as the server, otherwise it is not possible
+					to de-serialize the exceptions due to different serial version UIDs  -->
+			<groupId>eclipselink</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>12212</version>
+			<scope>system</scope>
+			<systemPath>${env.WL_HOME}\\..\\oracle_common\\modules\\oracle.toplink\\eclipselink.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>mysql-connector</groupId>
+			<artifactId>mysql-connector</artifactId>
+			<version>5.1.22</version>
+			<scope>system</scope>
+			<systemPath>${env.WL_HOME}\\..\\oracle_common\\modules\\mysql-connector-java-commercial-5.1.22\\mysql-connector-java-commercial-5.1.22-bin.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jbatch</groupId>
+			<artifactId>jbatch</artifactId>
+			<version>12212</version>
+			<scope>system</scope>
+			<systemPath>${env.WL_HOME}\\modules\\com.ibm.jbatch.com.ibm.jbatch.container.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>weblogic</groupId>
