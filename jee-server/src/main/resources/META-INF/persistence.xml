@@ -1,0 +1,51 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="jee-pu" transaction-type="JTA">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
+		<jta-data-source>jdbc/postgresDS</jta-data-source>
+		<!-- PERSON ENTITIES -->
+		<class>danielh1307.jee.example.person.Person</class>
+
+		<!-- ADDRESS ENTITIES -->
+		<class>danielh1307.jee.example.address.Address</class>
+
+		<!-- VEHICLES ENTITIES -->
+		<class>danielh1307.jee.example.vehicle.Vehicle</class>
+		<class>danielh1307.jee.example.vehicle.Bike</class>
+		<class>danielh1307.jee.example.vehicle.Car</class>
+		<class>danielh1307.jee.example.vehicle.BikeType</class>
+
+		<!-- UTIL ENTITIES -->
+		<class>danielh1307.jee.example.util.LocalDateConverter</class>
+		<properties>
+			<property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.use_sql_comments" value="true" />
+			<property name="javax.persistence.schema-generation.scripts.action"
+				value="drop-and-create" />
+			<property name="javax.persistence.schema-generation.scripts.create-target"
+				value="c:/temp/db-schema-create.jpa.ddl" />
+			<property name="javax.persistence.schema-generation.scripts.drop-target"
+				value="c:/temp/db-schema-drop.jpa.ddl" />
+
+
+			<!-- PROPERTIES FOR ECLIPSELINK -->
+			<!-- <property name="eclipselink.ddl-generation" value="drop-and-create-tables" 
+				/> <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc" 
+				/> <property name="eclipselink.ddl-generation.output-mode" value="sql-script" 
+				/> <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc" 
+				/> <property name="eclipselink.target-database" value="MySQL" /> <property 
+				name="eclipselink.application-location" value="c:/temp/" /> <property name="eclipselink.deploy-on-startup" 
+				value="true" /> <property name="eclipselink.ddlgen-terminate-statements" 
+				value="true" /> THAT LOGGING DID NOT WORK <property name="eclipselink.logging.level" 
+				value="INFO" /> <property name="eclipselink.logging.level.sql" value="INFO" 
+				/> <property name="eclipselink.logging.parameters" value="true" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>

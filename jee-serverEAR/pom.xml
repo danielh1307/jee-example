@@ -29,6 +29,7 @@
 							<bundleDir>lib</bundleDir>
 						</jarModule>
 					</modules>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -40,12 +41,12 @@
 			<artifactId>server</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<type>ejb</type>
-		</dependency>	
+		</dependency>
 		<dependency>
 			<groupId>danielh1307.jee.example</groupId>
 			<artifactId>client</artifactId>
 			<version>1.0-SNAPSHOT</version>
-		</dependency>			
+		</dependency>
 	</dependencies>
 
 </project>

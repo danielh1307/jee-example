@@ -1,0 +1,5 @@
+<job id="simple-batchlet-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+	<step id="batchlet-step">
+		<batchlet ref="danielh1307.jee.example.batch.SimpleBatchlet" />
+	</step>
+</job>
