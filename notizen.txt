@@ -1,1 +1,17 @@
-Anleitung - TODO
+The following entities exist:
+============================
+Person
+Address
+Vehicle
+Bike (subclass of Vehicle)
+Car (subclass of Vehicle)
+
+The cardinalities are:
+======================
+Person <--- 1:1 ---> Address
+Person <--- 1:n ---> Vehicles
+
+
+
+
+
