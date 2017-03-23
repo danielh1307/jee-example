@@ -22,21 +22,21 @@ import danielh1307.jee.example.util.access.GenericAccess;
 
 /**
  * {@link TransactionAttributeType#REQUIRED} means a transaction is required and
- * created if there is none. If this service mus be called with an existing
+ * created if there is none. If this service must be called with an existing
  * transaction, {@link TransactionAttributeType#MANDATORY} would be the correct
  * setting.
  *
  */
 @Stateless(mappedName = "PersonService")
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
-@Interceptors({MDCInterceptor.class, LogMethodInterceptor.class})
+@Interceptors({ MDCInterceptor.class, LogMethodInterceptor.class })
 public class PersonServiceImpl implements PersonService {
 
 	private static final Logger logger = LoggerFactory.getLogger(PersonServiceImpl.class);
 
 	@EJB
 	private PersonValidator personValidator;
-	
+
 	@EJB
 	private AddressValidator addressValidator;
 
@@ -45,7 +45,7 @@ public class PersonServiceImpl implements PersonService {
 
 	@EJB
 	private PersonAccess personAccess;
-	
+
 	@EJB
 	private LifeCycleChanger lifeCycleChanger;
 
@@ -80,18 +80,18 @@ public class PersonServiceImpl implements PersonService {
 	public void deletePerson(int id) {
 		personAccess.delete(id);
 	}
-	
+
 	@Override
 	public Person inactivatePerson(int id) {
 		return lifeCycleChanger.inactivatePerson(id);
 	}
-	
+
 	private void validatePerson(Person p) throws ValidationException {
 		personValidator.validate(p);
 		if (p.getAdresse().isPresent()) {
 			addressValidator.validate(p.getAdresse().get());
 		}
-		
+
 	}
 
 }

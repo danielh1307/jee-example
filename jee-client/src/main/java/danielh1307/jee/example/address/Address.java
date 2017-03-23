@@ -123,11 +123,21 @@ public class Address extends BaseEntity {
 		this.ort = ort;
 	}
 
+	/**
+	 * 
+	 * @return the person this address belongs to
+	 */
 	public Person getPerson() {
 		return person;
 	}
 
+	/**
+	 * 
+	 * @param newPerson the person this address belongs to
+	 */
 	public void setPerson(Person newPerson) {
+		// since there is a bi-directional mapping between person and address,
+		// we have to make sure the given person does not already have a different address
 		if (newPerson.getAdresse().isPresent()) {
 			if (!this.equals(newPerson.getAdresse().get())) {
 				throw new RuntimeException(
@@ -140,8 +150,13 @@ public class Address extends BaseEntity {
 		}
 	}
 
+	/**
+	 * Removes the current person from the address.
+	 */
 	public void removePerson() {
 		if (person != null) {
+			// since there is a bi-directional mapping between person and address,
+			// we also have to remove the address from the person			
 			Person oldPerson = person;
 			person = null;
 			oldPerson.removeAdresse();

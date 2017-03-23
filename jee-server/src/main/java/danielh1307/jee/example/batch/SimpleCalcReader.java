@@ -20,6 +20,11 @@ import org.slf4j.LoggerFactory;
 import danielh1307.jee.example.util.LogMethodInterceptor;
 import danielh1307.jee.example.util.MDCInterceptor;
 
+/**
+ * 
+ * This is the reader of the process SimpleCalculationJob.
+ *
+ */
 @Named
 @Interceptors(MDCInterceptor.class)
 public class SimpleCalcReader extends AbstractItemReader {
@@ -35,7 +40,7 @@ public class SimpleCalcReader extends AbstractItemReader {
 
 	/**
 	 * This method is exactly called once at the beginning of the batch. The
-	 * parameter checkpoint is null.
+	 * parameter checkpoint is null then.
 	 */
 	@Override
 	@Interceptors(LogMethodInterceptor.class)

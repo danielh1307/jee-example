@@ -6,6 +6,11 @@ import javax.inject.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * This is the processor of the process SimpleCalculationJob.
+ *
+ */
 @Named
 public class SimpleCalcProcessor implements ItemProcessor {
 	

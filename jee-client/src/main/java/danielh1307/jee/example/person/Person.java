@@ -111,13 +111,23 @@ public class Person extends BaseEntity {
 		return geburtsdatum;
 	}
 
+	/**
+	 * 
+	 * @return the address which belongs to this person
+	 */
 	public Optional<Address> getAdresse() {
 		return Optional.ofNullable(adresse);
 	}
 
+	/**
+	 * 
+	 * @param newAddress the address which belongs to this person
+	 */
 	public void setAdresse(Address newAddress) {
 		testParamNotNull(newAddress, "adresse");
 
+		// since there is a bi-directional mapping between person and address,
+		// we have to make sure the given address does not already belong to a different person
 		if (newAddress.getPerson() != null) {
 			if (!this.equals(newAddress.getPerson())) {
 				throw new RuntimeException(
@@ -130,8 +140,13 @@ public class Person extends BaseEntity {
 		}
 	}
 
+	/**
+	 * Removes the current address from this person.
+	 */
 	public void removeAdresse() {
 		if (adresse != null) {
+			// since there is a bi-directional mapping between person and address,
+			// we also have to remove this person from the address
 			Address oldAddress = adresse;
 			adresse = null;
 			oldAddress.removePerson();

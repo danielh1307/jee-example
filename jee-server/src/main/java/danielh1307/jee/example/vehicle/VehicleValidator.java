@@ -18,6 +18,7 @@ public class VehicleValidator {
 			return;
 		}
 		
+		// we check the owner of the vehicle must be at least 18 years old
 		LocalDate current = LocalDate.now();
 		LocalDate birthday = v.getOwner().getGeburtsdatum();
 		
