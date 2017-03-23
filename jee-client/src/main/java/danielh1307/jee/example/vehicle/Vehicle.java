@@ -57,6 +57,10 @@ public abstract class Vehicle extends BaseEntity {
 		return owner;
 	}
 
+	/**
+	 * 
+	 * @param newOwner the owner of this vehicle. May also be null.
+	 */
 	public void setOwner(Person newOwner) {
 		if (sameAsFormer(newOwner)) {
 			// we do not set the same owner twice

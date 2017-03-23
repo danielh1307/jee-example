@@ -14,17 +14,9 @@ import danielh1307.jee.example.batch.PeriodicOperationService;
 public class PeriodicOperationServiceImpl implements PeriodicOperationService {
 
 	@Override
-	public long start(String id, Properties properties) {
+	public long start(String jobXmlName, Properties properties) {
 		JobOperator jobOperator = BatchRuntime.getJobOperator();
-		return jobOperator.start(id, properties);
-	}
-	
-	@Override
-	public long restart(long id) {
-		JobOperator jobOperator = BatchRuntime.getJobOperator();
-		Properties props = new Properties();
-		props.setProperty("calculationInputFileName", "calcInput.txt");
-		return jobOperator.restart(id, props);
+		return jobOperator.start(jobXmlName, properties);
 	}
 
 	@Override

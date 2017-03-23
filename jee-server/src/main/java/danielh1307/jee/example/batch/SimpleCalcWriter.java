@@ -8,6 +8,11 @@ import javax.inject.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * This is the writer of the process SimpleCalculationJob.
+ *
+ */
 @Named
 public class SimpleCalcWriter extends AbstractItemWriter {
 	
@@ -21,10 +26,6 @@ public class SimpleCalcWriter extends AbstractItemWriter {
 	public void writeItems(List<Object> arg0) throws Exception {
 		logger.info("Call to writeItem()");
 		for (Object o : arg0) {
-			// if (o.toString().contains("12")) {
-			// throw new RuntimeException("An error has occured when processing
-			// item [" + o + "]");
-			// }
 			logger.info("Result: " + o.toString());
 		}
 	}

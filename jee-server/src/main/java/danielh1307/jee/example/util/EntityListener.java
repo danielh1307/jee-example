@@ -20,8 +20,6 @@ public class EntityListener {
 		if (journalHandler != null) {
 			journalHandler.journalizeNew(newEntity);
 		}
-
-		// TODO: MRS
 	}
 
 	@PostUpdate
@@ -36,13 +34,11 @@ public class EntityListener {
 		if (journalHandler != null) {
 			journalHandler.journalizeUpdate(beforeImageEntity, changedEntity);
 		}
-
-		// TODO: MRS
 	}
 
 	@PostRemove
 	public void onPostRemove(Object o) {
-		// this is called after the entity has been removed
+		// this is called after the entity has been removed - not needed at the moment
 	}
 
 }

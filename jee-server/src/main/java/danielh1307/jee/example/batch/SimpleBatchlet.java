@@ -7,6 +7,11 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * Simple batchlet. Just prints a log statement.
+ *
+ */
 public class SimpleBatchlet implements Batchlet {
 	
 	private static Logger logger = LoggerFactory.getLogger(SimpleBatchlet.class);
